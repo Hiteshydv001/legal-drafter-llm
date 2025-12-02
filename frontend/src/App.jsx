@@ -81,36 +81,46 @@ function App() {
       {/* Cold Start Warning Popup */}
       <AnimatePresence>
         {showWarning && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-black/60 backdrop-blur-sm">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-[#050505]/80 backdrop-blur-sm">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="bg-[#1a1a1a] border border-orange-500/30 rounded-2xl p-6 max-w-md w-full shadow-2xl relative overflow-hidden"
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="glass-panel max-w-md w-full p-1 rounded-2xl relative overflow-hidden group"
             >
-               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 to-red-500" />
-               <div className="absolute -top-20 -right-20 w-40 h-40 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+               {/* Decorative Glows */}
+               <div className="absolute -top-20 -right-20 w-40 h-40 bg-legal-accent/20 rounded-full blur-[50px] pointer-events-none" />
+               <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-blue-900/20 rounded-full blur-[50px] pointer-events-none" />
+               
+               <div className="bg-[#0A0A0A]/90 rounded-xl p-6 relative z-10 border border-white/5">
+                 <div className="flex flex-col items-center text-center">
+                    
+                    <div className="mb-4 p-4 rounded-full bg-legal-accent/5 border border-legal-accent/20 shadow-[0_0_15px_-3px_rgba(197,160,89,0.2)]">
+                      <Loader2 className="w-8 h-8 text-legal-accent animate-[spin_3s_linear_infinite]" />
+                    </div>
 
-               <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-full bg-orange-500/10 border border-orange-500/20 shrink-0">
-                    <AlertTriangle className="w-6 h-6 text-orange-500" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-serif text-orange-100 mb-2">Server Status Notice</h3>
-                    <p className="text-sm text-gray-400 leading-relaxed">
-                      The backend is hosted on Render's <span className="text-orange-400 font-medium">Free Tier</span>.
-                      The first request may take <span className="text-white font-bold">~50 seconds</span> to wake up the server (Cold Start).
+                    <h3 className="font-serif text-2xl text-white mb-2 tracking-wide">
+                      System <span className="text-legal-accent">Initialization</span>
+                    </h3>
+                    
+                    <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-legal-accent/50 to-transparent mb-4" />
+
+                    <p className="text-sm text-legal-muted leading-relaxed font-mono mb-6">
+                      The drafting engine is currently in <span className="text-legal-accent">dormant mode</span> (Render Free Tier). 
+                      Please allow approximately <span className="text-white font-bold">50 seconds</span> for the neural networks to wake up and process your first request.
                     </p>
-                  </div>
-               </div>
 
-               <div className="mt-6 flex justify-end">
-                 <button
-                   onClick={() => setShowWarning(false)}
-                   className="px-4 py-2 rounded-lg bg-orange-500/10 border border-orange-500/20 text-orange-400 hover:bg-orange-500/20 hover:text-orange-300 transition-colors text-sm font-medium"
-                 >
-                   I Understand
-                 </button>
+                    <button
+                      onClick={() => setShowWarning(false)}
+                      className="group/btn relative w-full overflow-hidden rounded-lg bg-legal-accent/10 border border-legal-accent/20 px-4 py-3 transition-all hover:bg-legal-accent/20 hover:border-legal-accent/40 active:scale-[0.98]"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-legal-accent/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                      <span className="relative text-sm font-medium text-legal-accent uppercase tracking-widest">
+                        Acknowledge Protocol
+                      </span>
+                    </button>
+                 </div>
                </div>
             </motion.div>
           </div>
