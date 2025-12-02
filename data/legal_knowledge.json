@@ -1,0 +1,6 @@
+{
+  "loan": "STANDARD LOAN TERMS: 1. Interest: Calculated daily on reducing balance. 2. Default Penalty: 2% per month. 3. Prepayment: 1% fee on outstanding principal. 4. Jurisdiction: Courts of the Lender's city.",
+  "nda": "STANDARD NDA TERMS: 1. Term: 3 years from effective date. 2. Exclusions: Public domain info, court orders. 3. Return of Data: Within 7 days. 4. Remedies: Injunctive relief and damages.",
+  "rent": "STANDARD RENTAL TERMS: 1. Deposit: Refundable, interest-free. 2. Notice: 1 month written notice. 3. Maintenance: Structural by Landlord, minor repairs (up to 5000 INR) by Tenant.",
+  "employment": "STANDARD EMPLOYMENT TERMS: 1. Probation: 6 months. 2. Termination: 30 days notice or salary in lieu. 3. IP Rights: All work product belongs to the Employer. 4. Non-compete: Valid during employment term."
+}

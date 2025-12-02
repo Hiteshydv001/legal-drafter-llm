@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --legal-bg: #050505;
+  --legal-surface: #0A0A0A;
+  --legal-accent: #C5A059;
+}
+
+body {
+  background-color: var(--legal-bg);
+  color: #E1E1E1;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(197, 160, 89, 0.2);
+  color: #fff;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C5A059;
+}
+
+.glass-panel {
+  background: rgba(15, 15, 15, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.input-glow:focus-within {
+  box-shadow: 0 0 40px -10px rgba(197, 160, 89, 0.25);
+  border-color: rgba(197, 160, 89, 0.5);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+}
+
+@keyframes gradient-xy {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-xy 15s ease infinite;
+}
