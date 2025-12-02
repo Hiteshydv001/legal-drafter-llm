@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Scale, FileText, Sparkles, ArrowRight, Download, Loader2, ShieldCheck, FileType } from 'lucide-react';
+import { Scale, FileText, Sparkles, ArrowRight, Download, Loader2, ShieldCheck, FileType, AlertTriangle, X } from 'lucide-react';
 
 function App() {
   const [prompt, setPrompt] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
+  const [showWarning, setShowWarning] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -77,6 +78,34 @@ function App() {
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-legal-accent/10 rounded-full blur-[128px] pointer-events-none" />
       <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-900/10 rounded-full blur-[128px] pointer-events-none" />
       
+      {/* Cold Start Warning */}
+      <AnimatePresence>
+        {showWarning && (
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            className="relative z-50 bg-orange-900/40 border-b border-orange-500/30 backdrop-blur-md"
+          >
+            <div className="container mx-auto px-6 py-3 flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3 text-orange-200/90 text-xs md:text-sm font-mono">
+                <AlertTriangle className="w-4 h-4 text-orange-500 shrink-0" />
+                <p>
+                  <span className="font-bold text-orange-400">Server Status:</span> Backend hosted on Render Free Tier. 
+                  First request may take <span className="text-white">~50 seconds</span> to wake up (Cold Start).
+                </p>
+              </div>
+              <button 
+                onClick={() => setShowWarning(false)}
+                className="p-1 hover:bg-orange-500/20 rounded-lg transition-colors text-orange-400 hover:text-orange-200"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <main className="relative z-10 container mx-auto px-6 py-12 flex-grow flex flex-col items-center">
         
         {/* Header Section */}
