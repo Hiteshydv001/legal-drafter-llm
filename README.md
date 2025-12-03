@@ -8,6 +8,10 @@
 
 A production-grade legal document generation engine powered by **Google Gemini 2.0 Flash**. This application leverages **RAG (Retrieval Augmented Generation)** to draft precise, context-aware legal documents such as contracts, agreements, and NDAs. It features a visually stunning "Cyber-Legal" frontend interface with real-time PDF previews.
 
+## 🎥 Demo
+
+[![Watch the Demo](https://img.youtube.com/vi/wAtx_859lu8/0.jpg)](https://youtu.be/wAtx_859lu8)
+
 ## 🚀 Features
 
 - **🤖 Advanced AI Drafting**: Utilizes Google's Gemini 2.0 Flash model for high-quality, legally sound text generation.
